@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Front Porch Evening (Charleston)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{ color-scheme:dark; --page:#2E3B36; --surface:#39483F; --rule:#4D5D55; --impact-bg:#26322D; --band:#25302C; --band-2:#39483F; --soft:#D4A24C; --soft-card:#E6C68A; --line:#B88A84; --text:#F6F1E7; --accent:#B88A84; --btn-bg:transparent; --btn-fg:#F6F1E7; --btn-border:#F6F1E7; --on-band:#F6F1E7; --on-band-muted:#DCD3C2; --muted:#D6CCBA; --fs:17.5px; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); background:var(--band); }
+:root.large{ --fs:20.5px; }
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-padding-top:env(safe-area-inset-top,0px); -webkit-text-size-adjust:100%; }
+body{ margin:0; font-family:"Montserrat","Helvetica Neue",Arial,sans-serif; font-size:var(--fs); line-height:1.6; color:var(--text); background:var(--page); }
+h1,h2,h3,.wordmark{ font-family:"Playfair Display","Libre Caslon Text",Georgia,"Times New Roman",serif; }
+.wrap{ max-width:560px; margin:0 auto; }
+.top{ background:var(--band); color:var(--on-band); padding:22px 22px 30px; }
+.top-row{ display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.brand{ display:flex; flex-direction:column; gap:2px; }
+.wordmark{ font-weight:800; font-size:1.35em; line-height:1.15; color:var(--on-band); }
+.tagline{ font-size:0.74em; font-weight:500; font-style:italic; color:var(--on-band-muted); line-height:1.3; }
+.size-toggle{ display:inline-flex; border:1.5px solid var(--on-band-muted); border-radius:999px; overflow:hidden; }
+.size-toggle button{ font-family:inherit; font-weight:700; background:transparent; color:var(--on-band); border:0; min-width:48px; min-height:40px; cursor:pointer; }
+.size-toggle button[aria-pressed="true"]{ background:var(--on-band); color:var(--band); }
+.size-toggle .big{ font-size:1.15em; } .size-toggle .small{ font-size:0.85em; }
+.greeting{ font-size:2.2em; font-weight:700; line-height:1.15; margin:26px 0 6px; }
+.date{ color:var(--on-band-muted); margin:0 0 18px; font-weight:500; display:flex; flex-wrap:wrap; align-items:center; gap:6px 14px; }
+.edition{ font-weight:600; font-size:0.8em; }
+.weather{ display:inline-flex; align-items:center; gap:8px; padding:4px 12px 4px 8px; border-radius:999px; background:var(--band-2); color:var(--on-band); font-weight:600; font-size:0.9em; }
+.weather-note{ width:100%; font-size:0.85em; }
+.promise{ margin:0; padding:14px 16px; border-radius:12px; background:var(--band-2); color:var(--on-band); font-weight:500; line-height:1.5; }
+main{ padding:6px 0 0; }
+.section{ padding:26px 22px 6px; }
+.section-head{ margin:0 0 4px; font-size:1.45em; font-weight:700; color:var(--text); }
+.section-sub{ margin:0 0 14px; color:var(--muted); font-size:0.85em; }
+.story{ background:var(--surface); border-radius:14px; padding:22px 20px 18px; margin:0 0 16px; border:1px solid var(--rule); }
+.why{ margin:0 0 8px; color:var(--muted); font-size:0.8em; font-weight:600; }
+.story h3{ margin:0 0 10px; font-size:1.3em; line-height:1.3; font-weight:700; }
+.story p{ margin:0 0 12px; }
+.impact{ background:var(--impact-bg); border-left:5px solid var(--accent); border-radius:4px 12px 12px 4px; padding:14px 16px; margin:16px 0; }
+.impact-label{ margin:0 0 6px !important; font-weight:700; color:var(--accent); font-size:0.92em; }
+.impact p:last-child{ margin-bottom:0; }
+.actions{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.read{ display:inline-flex; align-items:center; min-height:48px; padding:0 4px; color:var(--text); font-weight:600; text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1.5px; }
+.source{ color:var(--muted); font-size:0.8em; width:100%; margin:2px 0 0 4px; }
+.follow,.fb{ font-family:inherit; font-weight:700; font-size:0.9em; min-height:48px; padding:0 18px; border-radius:999px; cursor:pointer; background:var(--btn-bg); color:var(--btn-fg); border:2px solid var(--btn-border); }
+.follow{ margin-left:auto; }
+.fb{ min-height:52px; padding:0 20px; }
+.follow[aria-pressed="true"],.fb[aria-pressed="true"]{ background:var(--soft); color:#2B2A26; border-color:var(--soft); }
+.followed{ border-style:dashed; }
+.changed{ font-weight:700; margin:0 0 6px !important; color:var(--accent); font-size:0.92em; }
+.sports{ margin:0 0 16px; padding:16px 18px; border-radius:14px; background:var(--surface); border:1px solid var(--rule); }
+.sports strong{ display:block; margin-bottom:4px; }
+.tomorrow{ background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:18px 20px; margin:0 0 16px; }
+.tomorrow h3{ margin:0 0 10px; font-size:1.2em; } .tomorrow p{ margin:0 0 10px; } .tomorrow p:last-child{ margin-bottom:0; }
+.good{ background:var(--soft); color:#2B2A26; border-radius:22px 22px 0 0; margin-top:18px; padding:28px 22px 14px; }
+.good .section-head,.good .section-sub,.good .why,.good .read,.good .source,.good p,.good h3{ color:#2B2A26; }
+.good .story{ background:rgba(252,240,236,0.62); border-color:rgba(43,42,38,0.22); }
+.feedback{ padding:26px 22px 8px; text-align:center; }
+.feedback h2{ margin:0 0 4px; font-size:1.3em; font-weight:700; }
+.feedback p{ margin:0 0 14px; color:var(--muted); font-size:0.85em; }
+.fb-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+.done{ background:var(--band); color:var(--on-band); padding:34px 22px 40px; text-align:center; }
+.done-mark,.moon{ width:64px; height:64px; border-radius:50%; margin:0 auto 16px; display:grid; place-items:center; background:var(--band-2); border:2px solid var(--line); color:var(--on-band); }
+.done h2{ margin:0 0 8px; font-size:1.7em; line-height:1.2; }
+.done p{ margin:0 auto 8px; color:var(--on-band-muted); max-width:32ch; }
+.sample-note{ margin-top:22px !important; font-size:0.75em; }
+.toast{ position:fixed; left:50%; bottom:calc(18px + env(safe-area-inset-bottom,0px)); transform:translate(-50%,20px); opacity:0; pointer-events:none; background:var(--band); color:var(--on-band); border:2px solid var(--line); padding:14px 20px; border-radius:14px; font-weight:600; font-size:0.9em; max-width:calc(100% - 32px); width:max-content; text-align:center; transition:opacity .25s ease,transform .25s ease; }
+.toast.show{ opacity:1; transform:translate(-50%,0); }
+a:focus-visible,button:focus-visible{ outline:3px solid var(--accent); outline-offset:3px; }
+.top a:focus-visible,.top button:focus-visible{ outline-color:var(--on-band); }
+.good a:focus-visible,.good button:focus-visible{ outline-color:#2B2A26; }
+@media (prefers-reduced-motion:reduce){ .toast{ transition:none; } }
+
+.impact{ border-left-color:var(--accent); }
+.impact-label{ color:var(--accent); }
+.done{ background:var(--band); color:var(--on-band); }
+.done p{ color:var(--on-band-muted); }
+.done-mark,.moon{ background:var(--band-2); color:var(--on-band); border:none; }
+.top .weather,.top .promise{ background:var(--band-2); color:var(--on-band); }
+.good .story{ background:var(--soft-card); border-color:rgba(43,42,38,0.22); }
+.good .follow:not([aria-pressed="true"]){ background:transparent; color:#2B2A26; border-color:#2B2A26; }
+.good .follow[aria-pressed="true"]{ background:#2B2A26; color:var(--soft-card); border-color:#2B2A26; }
+.good .impact{ background:rgba(255,255,255,0.45); border-left-color:#2B2A26; }
+.good .impact-label,.good .changed{ color:#2B2A26; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="top-row">
+      <div class="brand">
+        <span class="wordmark">Front Porch</span>
+        <span class="tagline">News the way a neighbor tells it.</span>
+      </div>
+      <div class="size-toggle" role="group" aria-label="Text size">
+        <button type="button" class="small" data-size="normal" aria-pressed="true" aria-label="Regular text">A</button>
+        <button type="button" class="big" data-size="large" aria-pressed="false" aria-label="Larger text">A</button>
+      </div>
+    </div>
+    <h1 class="greeting">Good evening, Dianne.</h1>
+    <p class="date">
+      <span>Thursday evening, October 15</span>
+      <span class="edition">Evening edition</span>
+    </p>
+    <p class="promise">Pull up a chair. Here's what happened today. Five stories, then you can rest easy.</p>
+  </header>
+
+  <main>
+    <section class="section" aria-labelledby="h-today">
+      <h2 class="section-head" id="h-today">Need to know</h2>
+      <p class="section-sub">Only news from today, so nothing you already read this morning.</p>
+
+      <article class="story" data-id="prices">
+        <h3>Prices are climbing faster again</h3>
+        <p>Two reports this week showed prices rising faster than experts expected. Wednesday's report covered what shoppers pay, and today's covered what businesses pay for goods, which was up 6.3% from a year ago. Some economists now expect the Federal Reserve to raise interest rates again. Stock markets were mixed today after a rough day yesterday.</p>
+        <div class="impact">
+          <p class="impact-label">What this means for you</p>
+          <p>You may keep noticing higher prices at the grocery store for a while. This is also the reason your Social Security raise is bigger this year, since it's tied to rising prices.</p>
+          <p>If interest rates do go up, savings accounts and CDs usually pay a little more, while loans and credit cards cost more. Nothing to do tonight, but this one is worth following.</p>
+        </div>
+        <div class="actions">
+          <a class="read" href="https://www.fool.com/coverage/stock-market-today/2026/10/15/stock-market-midday-oct-15-markets-mixed-as-ai-sell-off-continues/" target="_blank" rel="noopener">Read the full story</a>
+          <button type="button" class="follow" aria-pressed="false">Follow this story</button>
+          <span class="source">Source: The Motley Fool and Labor Department data</span>
+        </div>
+      </article>
+
+      <article class="story" data-id="midterms-today">
+        <h3>Both parties make their closing pitches with 19 days to go</h3>
+        <p>Democratic leaders laid out what they say they'd do in their first 100 days if they win control of Congress. President Trump kept campaigning for Republican candidates today, including weighing in on Michigan's Senate race, ahead of his rally in Northern Kentucky on Saturday.</p>
+        <div class="impact">
+          <p class="impact-label">What this means for you</p>
+          <p>Expect more ads, mailers and phone calls between now and November 3. If you'd like a plain, side-by-side look at who's on your Kentucky ballot before you vote, tap follow and we'll include one closer to Election Day.</p>
+        </div>
+        <div class="actions">
+          <a class="read" href="https://www.foxnews.com/live-news/midterm-elections-2026-trump-democrats-october-15" target="_blank" rel="noopener">Read the full story</a>
+          <button type="button" class="follow" aria-pressed="false">Follow this story</button>
+          <span class="source">Source: Fox News</span>
+        </div>
+      </article>
+
+      <article class="story" data-id="flu">
+        <h3>Flu season is starting early in Louisville</h3>
+        <p>Louisville health officials said today they're already seeing an uptick in flu cases, earlier than usual for this time of year.</p>
+        <div class="impact">
+          <p class="impact-label">What this means for you</p>
+          <p>If you haven't had your flu shot yet, now is a good time. Pharmacies and doctors' offices have them, and people 65 and older can ask about the stronger version made especially for older adults.</p>
+        </div>
+        <div class="actions">
+          <a class="read" href="https://www.wdrbwave.com/video/2026/10/15/louisville-health-officials-report-early-uptick-flu-cases/" target="_blank" rel="noopener">Watch the full story</a>
+          <button type="button" class="follow" aria-pressed="false">Follow this story</button>
+          <span class="source">Source: WDRB+WAVE News</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="h-you">
+      <h2 class="section-head" id="h-you">Picked for you</h2>
+      <p class="section-sub">Chosen because of your life and the people in it.</p>
+
+      <article class="story" data-id="shakeout">
+        <p class="why">Why you're seeing this: you live in Kentucky</p>
+        <h3>Kentucky held its yearly earthquake drill today</h3>
+        <p>Kentuckians were encouraged to take part in today's Great ShakeOut earthquake drill, part of Kentucky Earthquake Awareness Week. Western Kentucky sits near one of the most active earthquake zones in the central U.S., so the state encourages everyone to practice once a year.</p>
+        <div class="impact">
+          <p class="impact-label">What this means for you</p>
+          <p>There's no earthquake expected. This is just practice. If you missed it, the whole drill is three steps: drop to your hands and knees, cover your head under a sturdy table, and hold on until the shaking stops.</p>
+        </div>
+        <div class="actions">
+          <a class="read" href="https://nkytribune.com/" target="_blank" rel="noopener">Read the full story</a>
+          <button type="button" class="follow" aria-pressed="false">Follow this story</button>
+          <span class="source">Source: Northern Kentucky Tribune and Kentucky Today</span>
+        </div>
+      </article>
+
+      <article class="story" data-id="texas-senate">
+        <p class="why">Why you're seeing this: your daughter lives in Texas</p>
+        <h3>Texas Senate race breaks a fundraising record</h3>
+        <p>Democrat James Talarico, running for U.S. Senate in Texas, announced today that his campaign raised $64 million over the summer, which his campaign says is a record for a Senate candidate at this point in an election year. Republican Ken Paxton is also getting big outside support, including $10 million from Elon Musk to a group backing his campaign.</p>
+        <div class="impact">
+          <p class="impact-label">What this means for you</p>
+          <p>Nothing changes for you in Kentucky. With this much money involved, though, expect to hear a lot about this race between now and November 3, and your family in Texas will see plenty of ads.</p>
+        </div>
+        <div class="actions">
+          <a class="read" href="https://www.foxnews.com/live-news/midterm-elections-2026-trump-democrats-october-15" target="_blank" rel="noopener">Read the full story</a>
+          <button type="button" class="follow" aria-pressed="false">Follow this story</button>
+          <span class="source">Source: Fox News</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" aria-labelledby="h-tomorrow">
+      <h2 class="section-head" id="h-tomorrow">Looking ahead to tomorrow</h2>
+      <div class="tomorrow">
+        <h3>Friday in Louisville: cooler, high of 66</h3>
+        <p>A big cooldown is on the way. Lows dip to the mid 30s Saturday and Sunday nights, so if you have potted plants outside, this weekend may be the time to bring them in.</p>
+        <p><strong>Saturday:</strong> Kentucky football plays at Oklahoma.</p>
+      </div>
+    </section>
+
+    <section class="good" aria-labelledby="h-good">
+      <h2 class="section-head" id="h-good">Something nice before bed</h2>
+      <p class="section-sub">A little good news to end the day.</p>
+
+      <article class="story" data-id="lanterns">
+        <p class="why">Good news from Louisville</p>
+        <h3>Thousands of carved pumpkins light up Iroquois Park</h3>
+        <p>Jack's Lantern Trail is back in the woods of Iroquois Park this October, with thousands of hand-carved pumpkins and big glowing displays along the path. Every ticket helps support Louisville's public parks.</p>
+        <div class="actions">
+          <a class="read" href="https://www.gotolouisville.com/" target="_blank" rel="noopener">See this month's events</a>
+          <span class="source">Source: Louisville Tourism</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="feedback" aria-labelledby="h-fb">
+      <h2 id="h-fb">How was tonight's report?</h2>
+      <p>Tap one. It helps us get the amount just right for you.</p>
+      <div class="fb-row" role="group" aria-label="Feedback">
+        <button type="button" class="fb" data-fb="just-right" aria-pressed="false">Just right</button>
+        <button type="button" class="fb" data-fb="too-much" aria-pressed="false">Too much</button>
+        <button type="button" class="fb" data-fb="too-little" aria-pressed="false">Too little</button>
+      </div>
+    </section>
+
+    <footer class="done">
+      <div class="moon" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </div>
+      <h2>That's the day.<br>Rest easy, Dianne.</h2>
+      <p>Your morning report will be ready when you wake up.</p>
+      <p class="sample-note">Sample evening edition for testing. Stories reflect real news as of October 15, 2026.</p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var toast = document.querySelector('.toast');
+  var toastTimer;
+
+  function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
+  function read(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
+  }
+
+  // Text size
+  var sizeBtns = document.querySelectorAll('.size-toggle button');
+  function setSize(size) {
+    root.classList.toggle('large', size === 'large');
+    sizeBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.size === size)); });
+    store('cu-size', size);
+  }
+  sizeBtns.forEach(function (b) { b.addEventListener('click', function () { setSize(b.dataset.size); }); });
+  setSize(read('cu-size') === 'large' ? 'large' : 'normal');
+
+  // Follow buttons
+  var saved = {};
+  try { saved = JSON.parse(read('cu-follows') || '{}') || {}; } catch (e) { saved = {}; }
+
+  document.querySelectorAll('.follow').forEach(function (btn) {
+    var id = btn.closest('.story').dataset.id;
+    if (Object.prototype.hasOwnProperty.call(saved, id)) render(btn, saved[id]);
+
+    btn.addEventListener('click', function () {
+      var on = btn.getAttribute('aria-pressed') !== 'true';
+      render(btn, on);
+      saved[id] = on;
+      store('cu-follows', JSON.stringify(saved));
+      showToast(on
+        ? "Got it. Updates on this story will show up in your daily report."
+        : "You've stopped following this story.");
+    });
+  });
+
+  function render(btn, on) {
+    btn.setAttribute('aria-pressed', String(on));
+    btn.textContent = on ? 'Following' : 'Follow this story';
+  }
+})();
+</script>
+<script>
+(function () {
+  var key = 'fp-feedback-' + document.title;
+  var btns = document.querySelectorAll('.fb');
+  var toast = document.querySelector('.toast');
+  function get() { try { return localStorage.getItem(key); } catch (e) { return null; } }
+  function mark(v) { btns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.fb === v)); }); }
+  mark(get());
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      mark(b.dataset.fb);
+      try { localStorage.setItem(key, b.dataset.fb); } catch (e) {}
+      toast.textContent = 'Thank you. That helps us get it right.';
+      toast.classList.add('show');
+      setTimeout(function () { toast.classList.remove('show'); }, 2600);
+    });
+  });
+})();
+</script>
+</body>
+</html>
